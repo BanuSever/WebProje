@@ -1,0 +1,18 @@
+﻿@model FilmTuru
+
+<form method="post">
+    <div class="border p-3 mt-5">
+        <div class="row pb-3">
+            <h2>Film Türü Silme</h2>
+        </div>
+
+        <div class="mb-3">
+            <label>Film Türü Sil: </label>
+            <input asp-for="TurAdi" disabled class="form-control" />
+            <span asp-validation-for="TurAdi" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary">Film Türü Sil</button>
+    </div>
+</form>
+

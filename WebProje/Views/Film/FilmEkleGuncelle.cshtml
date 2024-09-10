@@ -1,0 +1,61 @@
+﻿@model Film
+
+<form method="post" enctype="multipart/form-data">
+    @if (Model != null) // Sadece güncelleme işlemi sırasında göster
+    {
+        <input asp-for="FilmID" type="hidden" />
+    }
+    <!-- FilmID'nin gizli şekilde gönderilmesi -->
+
+    <input asp-for="PosterUrl" type="hidden" />
+
+    <div class="row">
+        <div class="col-10">
+
+            <div class="border p-3 mt-5">
+                <div class="row pb-3">
+                    <h2>@(Model == null ? "Film Ekleme" : "Film Güncelleme")</h2>
+                </div>
+
+                <div class="mb-3">
+                    <label>Film Adı Giriniz: </label>
+                    <input asp-for="FilmAdi" class="form-control" />
+                    <span asp-validation-for="FilmAdi" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label>Film Türü Seçiniz: </label>
+                    <select asp-for="FilmTuruID" asp-items="ViewBag.FilmTuruList" class="form-select"></select>
+                </div>
+                <div class="mb-3">
+                    <label>Açıklama Giriniz: </label>
+                    <input asp-for="Aciklama" class="form-control" />
+                    <span asp-validation-for="Aciklama" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label>Yönetmeni Giriniz: </label>
+                    <input asp-for="Yonetmen" class="form-control" />
+                    <span asp-validation-for="Yonetmen" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label>Poster: </label>
+                    <input type="file" name="file" class="form-control" />
+                </div>
+
+                @if (Model != null)
+                {
+                    <button type="submit" class="btn btn-lg btn-primary">Kaydet</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-lg btn-primary">Kaydet</button>
+                }
+            </div>
+        </div>
+        <div class="col-2">
+            @if (Model != null && !string.IsNullOrEmpty(Model.PosterUrl))
+            {
+                <img src="@Model.PosterUrl" width="100%" style="border-radius:6px; border: 1px solid" />
+            }
+        </div>
+    </div>
+</form>

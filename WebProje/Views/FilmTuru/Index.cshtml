@@ -1,0 +1,46 @@
+﻿@model List<FilmTuru>
+
+<div class="container">
+    <div class="row pt-3 pb-4">
+        <div>
+            <h1>Film Türleri</h1>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tür ID</th>
+                <th>Film Türü</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var filmTuru in Model)
+            {
+                <tr>
+                    <td>@filmTuru.TurID</td>
+                    <td>@filmTuru.TurAdi</td>
+                    <td>
+                        <a asp-controller="FilmTuru"
+                           asp-action="Guncelle"
+                           asp-route-id="@filmTuru.TurID"
+                           class="btn btn-warning">Güncelle</a>
+                    </td>
+                    <td>
+                        <a asp-controller="FilmTuru"
+                           asp-action="FilmTuruSil"
+                           asp-route-id="@filmTuru.TurID"
+                           class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="row pt-3 pb-2">
+        <a asp-controller="FilmTuru"
+           asp-action="FilmTuruEkle"
+           class="btn btn-lg btn-primary">
+            Film Türü Ekle
+        </a>
+    </div>
+</div>

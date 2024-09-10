@@ -1,0 +1,29 @@
+﻿@model Film
+
+<form method="post">
+    <div class="border p-3 mt-5">
+        <div class="row pb-3">
+            <h2>Film Silme</h2>
+        </div>
+
+        <div class="mb-3">
+            <label>Film Adı: </label>
+            <input asp-for="FilmAdi" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Türü: </label>
+            <input value="@(Model?.FilmTuru?.TurAdi ?? "Tür bilgisi yok")" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Açıklama: </label>
+            <input asp-for="Aciklama" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Yönetmeni: </label>
+            <input asp-for="Yonetmen" disabled class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary">Film Sil</button>
+    </div>
+</form>
+

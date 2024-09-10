@@ -1,0 +1,19 @@
+﻿@model FilmTuru
+
+<form method="post">
+    <input asp-for="TurID" hidden /> 
+    <div class="border p-3 mt-5">
+        <div class="row pb-3">
+            <h2>Film Türü Güncelleme</h2>
+        </div>
+
+        <div class="mb-3">
+            <label>Film Türü Güncelle: </label>
+            <input asp-for="TurAdi" class="form-control" />
+            <span asp-validation-for="TurAdi" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary">Film Türü Güncelle</button>
+    </div>
+</form>
+
